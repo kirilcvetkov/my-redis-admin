@@ -1,0 +1,12 @@
+{
+    "type": "ZSet",
+    "ttl": -1,
+    "encoding": "skiplist",
+    "refcount": 1,
+    "value": [
+        {
+            "score": 1676501248538633,
+            "value": "O:17:\"AppWh\\Cronjob\\Log\":13:{s:7:\"runTime\";d:2790.0328;s:5:\"limit\";i:512;s:3:\"mem\";i:2;s:4:\"peak\";i:10;s:5:\"peakR\";i:12;s:11:\"dbProcessID\";i:1357;s:8:\"dateDiff\";N;s:7:\"dateEnd\";s:19:\"2023-02-15 15:33:58\";s:6:\"status\";s:4:\"true\";s:4:\"name\";s:25:\"cronBulk3SetsContactCount\";s:7:\"subName\";N;s:9:\"dateStart\";s:19:\"2023-02-15 14:47:28\";s:7:\"mystamp\";s:18:\"167650124853863300\";}"
+        }
+    ]
+}
