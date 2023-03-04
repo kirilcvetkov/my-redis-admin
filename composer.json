@@ -1,0 +1,18 @@
+{
+    "name": "kirilcvetkov/my-redis-admin",
+    "description": "Manage your Redis server",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "KirilCvetkov\\MyRedisAdmin\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kiril Cvetkov",
+            "email": "kiril@boberdoo.com"
+        }
+    ],
+    "require": {}
+}
