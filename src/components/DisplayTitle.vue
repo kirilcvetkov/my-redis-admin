@@ -1,4 +1,5 @@
 <script setup>
+  import Modal from "@/components/Modal.vue";
   import { PencilSquareIcon, XCircleIcon, CircleStackIcon } from '@heroicons/vue/24/outline'
 </script>
 
