@@ -1,5 +1,4 @@
 <script setup>
-  import { defineProps, reactive } from "vue";
   import TreeItem from "@/components/TreeItem.vue";
 
   defineProps({

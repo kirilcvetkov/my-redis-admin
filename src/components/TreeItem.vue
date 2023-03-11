@@ -1,5 +1,4 @@
 <script setup>
-  import { defineProps } from "vue";
   import { RouterLink } from 'vue-router';
   import { FolderIcon, DocumentIcon, ChevronDownIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
   import TreeList from "@/components/TreeList.vue";
