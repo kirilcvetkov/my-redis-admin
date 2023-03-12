@@ -1,9 +1,13 @@
 <script setup>
-  import TreePanel from "@/components/TreePanel.vue";
-  import DisplayPanel from "@/components/DisplayPanel.vue";
+import TreePanel from "@/components/TreePanel.vue";
+import DisplayPanel from "@/components/DisplayPanel.vue";
+
+const props = defineProps({
+  id: String
+});
 </script>
 
 <template>
   <TreePanel />
-  <DisplayPanel />
+  <DisplayPanel :id="id" />
 </template>

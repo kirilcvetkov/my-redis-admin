@@ -10,7 +10,6 @@ export let useTree = defineStore('tree', {
 
   actions: {
     async fill() {
-      // testing
       let r = await import('@/tree.json');
       this.items = r.default || {};
       return;
@@ -23,26 +22,19 @@ export let useTree = defineStore('tree', {
         console.log(error);
       }
     },
-    async getItem() {
-      const route = useRoute();
-      const key = route.params.id;
-
-      if (! key || key == this.item.request) {
-        return;
-      }
-
+    async getItem(id, oldId) {
       this.item = {};
 
-      // testing
-      let r = await import('@/response.json');
-      this.item = r.default || {};
-      this.item.request = key;
-      return;
+      // // testing
+      // let r = await import('@/response.json');
+      // this.item = r.default || {};
+      // this.item.refcount = Math.floor(Math.random() * 123);
+
+      // return;
 
       try {
-        const res = await axios.get(`/api.php?key=` + key);
+        const res = await axios.get(`/api.php?key=` + id);
         this.item = res.data || {};
-        // this.item.request = key;
         console.log(res.data, this.item);
       } catch (error) {
         console.log(error);
@@ -51,10 +43,10 @@ export let useTree = defineStore('tree', {
   },
 
   getters: {
-    getItemValue: (state) => {
+    get: (state) => {
       return state.item;
     },
-    get: (state) => {
+    list: (state) => {
       return state.items;
     }
   }

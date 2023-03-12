@@ -1,14 +1,14 @@
 <script setup>
-  import { RouterLink } from 'vue-router';
-  import { FolderIcon, DocumentIcon, ChevronDownIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
-  import TreeList from "@/components/TreeList.vue";
+import { RouterLink } from 'vue-router';
+import { FolderIcon, DocumentIcon, ChevronDownIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
+import TreeList from "@/components/TreeList.vue";
 
-  defineProps({
-    name: String,
-    itemKey: String,
-    children: Object,
-    showChildren: { type: Boolean, default: false },
-  });
+defineProps({
+  name: String,
+  itemKey: String,
+  children: Object,
+  showChildren: { type: Boolean, default: false },
+});
 </script>
 
 <template>

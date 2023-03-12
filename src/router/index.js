@@ -13,6 +13,7 @@ const router = createRouter({
       path: "/id/:id",
       name: "get",
       component: HomeView,
+      props: true,
     },
     {
       path: '/:catchAll(.*)',
