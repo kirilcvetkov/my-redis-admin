@@ -25,12 +25,12 @@ export let useTree = defineStore('tree', {
     async getItem(id, oldId) {
       this.item = {};
 
-      // // testing
-      // let r = await import('@/response.json');
-      // this.item = r.default || {};
-      // this.item.refcount = Math.floor(Math.random() * 123);
+      // testing
+      let r = await import('@/response.json');
+      this.item = r.default || {};
+      this.item.refcount = Math.floor(Math.random() * 123);
 
-      // return;
+      return;
 
       try {
         const res = await axios.get(`/api.php?key=` + id);

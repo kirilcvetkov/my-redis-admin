@@ -1,12 +1,12 @@
 <script setup>
-  import TreeItem from "@/components/TreeItem.vue";
+import TreeItem from "@/components/TreeItem.vue";
 
-  defineProps({
-    tree: Object,
-    show: { type: Boolean, default: true },
-    main: { type: Boolean, default: false },
-  });
-  // :show-children="$route.params.id ? $route.params.id.startsWith(item.key) || false : false"
+defineProps({
+  tree: Object,
+  show: { type: Boolean, default: true },
+  main: { type: Boolean, default: false },
+});
+// :show-children="$route.params.id ? $route.params.id.startsWith(item.key) || false : false"
 </script>
 
 <template>
