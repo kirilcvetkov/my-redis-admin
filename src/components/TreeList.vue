@@ -10,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-  <ul v-if="show" :class="{ 'border-l': ! main }" class="space-y-2 p-1">
+  <ul v-if="show" :class="{ 'border-l border-l-gray-700': ! main }" class="space-y-2 p-1">
     <TreeItem
       v-if="show"
       v-for="item in tree"

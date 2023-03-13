@@ -1,6 +1,12 @@
 <script setup>
   defineProps({
-    item: Object,
+    item: {
+      type: Object,
+      default: {
+        type: '',
+        value: {},
+      }
+    }
   });
 </script>
 
