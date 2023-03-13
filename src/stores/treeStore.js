@@ -1,8 +1,15 @@
 import axios from "axios";
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+
 import { defineStore } from "pinia";
 import { useRoute } from 'vue-router';
 
 export let useTree = defineStore('tree', {
+  persist: true,
   state: () => ({
     isConnecting: false,
     host: '',
