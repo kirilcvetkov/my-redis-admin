@@ -1,5 +1,6 @@
 <script setup>
 import TreeList from "@/components/TreeList.vue";
+import ConnectionsModal from "@/components/ConnectionsModal.vue";
 import { useTree } from "@/stores/TreeStore"
 
 let tree = useTree();
@@ -13,8 +14,11 @@ tree.fill();
         <img class="object-contain w-auto" src="@/assets/logo.png" />
       </div>
 
+      <div class="pb-2">
+        <ConnectionsModal />
+      </div>
+
       <TreeList :tree="tree.list" :main="true" />
     </div>
   </aside>
 </template>
-

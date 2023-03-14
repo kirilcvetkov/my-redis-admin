@@ -11,7 +11,6 @@ import { useRoute } from 'vue-router';
 export let useTree = defineStore('tree', {
   persist: true,
   state: () => ({
-    isConnecting: false,
     host: '',
     port: 6379,
     username: null,
@@ -23,7 +22,7 @@ export let useTree = defineStore('tree', {
 
   actions: {
     async fill() {
-      if (! this.isConfigured) {
+      if (! this.validateHost || ! this.validatePort) {
         return;
       }
 
@@ -60,9 +59,6 @@ export let useTree = defineStore('tree', {
   },
 
   getters: {
-    isConfigured: (state) => {
-      return state.host.length > 0;
-    },
     get: (state) => {
       return state.item;
     },
