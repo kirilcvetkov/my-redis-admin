@@ -11,11 +11,8 @@ import { useRoute } from 'vue-router';
 export let useTree = defineStore('tree', {
   persist: true,
   state: () => ({
-    host: '',
-    port: 6379,
-    username: null,
-    password: null,
-    database: 0,
+    connections: {},
+    connectionId: 0,
     items: {},
     item: {},
   }),
@@ -39,12 +36,26 @@ export let useTree = defineStore('tree', {
         console.log(error);
       }
     },
+    async connections() {
+      // testing
+      let r = await import('@/../my-config.json');
+      this.connections = r.default.connections || {};
+      console.log(r.default.connections, this.connections);
+      return;
+
+      try {
+        const res = await axios.get(`/api.php?connections=1`);
+        this.items = res.data || {};
+        console.log('connections', res.data, this.items);
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async getItem(id, oldId) {
       // testing
       let r = await import('@/response.json');
       this.item = r.default || {};
       this.item.refcount = Math.floor(Math.random() * 123);
-
       return;
 
       try {
@@ -66,10 +77,16 @@ export let useTree = defineStore('tree', {
       return state.items;
     },
     validateHost: (state) => {
-      return state.host.length > 0;
+      return false; // state.connections[state.connectionId].host.length > 0;
     },
     validatePort: (state) => {
-      return state.port > 0;
+      return true; // state.connections[state.connectionId].port.length > 0;
+    },
+    getConnections: (state) => {
+      return state.connections;
+    },
+    getConnectionId: (state) => {
+      return state.connectionId;
     },
   }
 });

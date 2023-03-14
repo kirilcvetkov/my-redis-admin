@@ -1,10 +1,11 @@
 <script setup>
 import { ref, computed } from "vue";
-import { LinkIcon } from '@heroicons/vue/24/outline'
+import { CheckCircleIcon, LinkIcon } from '@heroicons/vue/24/outline'
 import Modal from "@/components/Modal.vue";
 
 import { useTree } from "@/stores/TreeStore"
 let tree = useTree();
+tree.connections();
 
 let showModal = ref(! tree.validateHost);
 
@@ -34,30 +35,42 @@ const validate = computed(() => {
 
       <table class="w-full border border-slate-300 dark:border-slate-600 dark:text-gray-300 bg-white dark:bg-gray-700 text-sm shadow-sm">
         <thead>
-          <tr class="border-b border-slate-300 dark:border-slate-600">
+          <tr class="border-b border-slate-300 dark:border-slate-600 text-left">
+            <th class="w-0"></th>
             <th class="p-2">Name</th>
             <th class="p-2">Host</th>
             <th class="p-2">Port</th>
-            <th class="p-2">User</th>
-            <th class="p-2">Pass</th>
+            <th class="p-2">Username</th>
+            <th class="p-2">Password</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="p-4 text-slate-500 dark:text-slate-400">
-              Name
+          <tr v-for="(connection, key) in tree.connections">
+            <td class="p-4 text-slate-500 dark:text-slate-400"
+              @click="tree.connectionId = key"
+            >
+              <CheckCircleIcon
+                class="w-4"
+                :class="{
+                  'text-green-600': key == tree.connectionId,
+                  'text-gray-600': key != tree.connectionId,
+                }"
+              />
             </td>
             <td class="p-4 text-slate-500 dark:text-slate-400">
-              Host
+              {{ connection.name }}
             </td>
             <td class="p-4 text-slate-500 dark:text-slate-400">
-              Port
+              {{ connection.host }}
             </td>
             <td class="p-4 text-slate-500 dark:text-slate-400">
-              Username
+              {{ connection.port }}
             </td>
             <td class="p-4 text-slate-500 dark:text-slate-400">
-              Password
+              {{ connection.username }}
+            </td>
+            <td class="p-4 text-slate-500 dark:text-slate-400">
+              {{ connection.password }}
             </td>
           </tr>
         </tbody>

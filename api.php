@@ -2,6 +2,8 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
+$config = loadConfig();
+
 #### 1. Code it with phpredis
 
 $redis = new Redis();
@@ -68,6 +70,10 @@ if ($request) {
     ]), JSON_PRETTY_PRINT));
 }
 
+if ($_REQUEST['connections'] ?? null) {
+    exit(json_encode($config['connections'] ?? null, JSON_PRETTY_PRINT));
+}
+
 $foundKeys = [];
 $page = 100;
 
@@ -101,5 +107,9 @@ function fill($tree, $parent, $key = null)
     return $parent;
 }
 
+function loadConfig(): array
+{
+    return json_decode(file_get_contents('../my-config.json'), true) ?: [];
+}
 
 #### 2. Code with predis package

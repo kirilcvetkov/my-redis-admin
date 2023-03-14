@@ -4,6 +4,7 @@ import ConnectionsModal from "@/components/ConnectionsModal.vue";
 import { useTree } from "@/stores/TreeStore"
 
 let tree = useTree();
+tree.connections();
 tree.fill();
 </script>
 
